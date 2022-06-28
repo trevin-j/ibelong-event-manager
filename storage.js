@@ -1,9 +1,10 @@
-async function saveActivity(title, description, activityDate, postDate) {
+async function saveActivity(title, description, start, end, location) {
     let activity = {
         title: title,
         description: description,
-        activityDate: activityDate,
-        postDate: postDate,
+        start: start,
+        end: end,
+        location: location,
         isPosted: false
     };
     let activities = await getActivities();
