@@ -30,29 +30,37 @@
       <div id="eventList" class="show">
         home
       </div>
-      <form id="eventForm">
+      <form id="eventForm" class="needs-validation">
         <div class="form-group mb-4">
-          <label for="ttl" class="font-weight-bold">Title</label>
-          <input type="text" class="form-control" id="ttl" />
+          <label for="ttl" class="font-weight-bold" >Title</label>
+          <input type="text" class="form-control" id="ttl" required/>
         </div>
         <div class="form-group mb-4">
-          <label for="description" class="font-weight-bold">Description</label>
+          <label for="description" class="font-weight-bold" >Description</label>
           <textarea class="form-control" id="description"></textarea>
         </div>
         <div class="form-group mb-4">
-          <label for="location" class="font-weight-bold">Location</label>
-          <input type="text" class="form-control" id="location" />
+          <label for="location" class="font-weight-bold" >Location</label>
+          <input type="text" class="form-control" id="location" required/>
         </div>
         <div class="form-group mb-4">
-          <label for="start-date" class="font-weight-bold">Start</label>
-          <input type="datetime-local" class="form-control" id="start-date" />
+          <div class="startAllDayLabelsContainer">
+            <label for="start-date" class="font-weight-bold" >Start</label>
+            <div class="form-check d-inline">
+              <input class="form-check-input" type="checkbox" value="" id="allDay">
+              <label class="form-check-label" for="allDay">
+                All Day
+              </label>
+            </div>
+          </div>
+          <input type="datetime-local" class="form-control" id="start-date" required/>
         </div>
-        <div class="form-group mb-4">
-          <label for="end-date" class="font-weight-bold">End</label>
-          <input type="datetime-local" class="form-control" id="end-date" />
+        <div class="form-group mb-4 show" id="end" class="show">
+          <label for="end-date" class="font-weight-bold" >End</label>
+          <input type="datetime-local" class="form-control" id="end-date" required/>
         </div>
 
-        <button type="save" class="btn btn-primary">Save</button>
+        <button type="save" class="btn btn-primary" id="saveBtn">Save</button>
       </form>
     </div>
 
