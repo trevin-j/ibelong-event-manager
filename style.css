@@ -1,0 +1,27 @@
+
+html {
+    font-size: 14px;
+}
+
+body {
+    width: 250px;
+}
+
+#create-btn {
+    width: 100%;
+}
+
+#eventList {
+    display: none;
+}
+
+#eventList.show {
+    display: block;
+}
+#eventForm {
+    display: none;
+}
+
+#eventForm.show {
+    display: block;
+}

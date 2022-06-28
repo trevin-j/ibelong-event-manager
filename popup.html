@@ -1,10 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="button.css">
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <button id="changeColor"></button>
+    <div class="container-sm p-4">
+      <h4 class="text-center mb-4">Event Manager</h4>
+      <div class="add-btn-container my-3">
+        <button type="button" class="btn btn-outline-success" id="create-btn">Create</button>
+      </div>
+      <div id="eventList" class="show">
+        home
+      </div>
+      <form id="eventForm">
+        <div class="form-group mb-4">
+          <label for="ttl" class="font-weight-bold">Title</label>
+          <input type="text" class="form-control" id="ttl" />
+        </div>
+        <div class="form-group mb-4">
+          <label for="description" class="font-weight-bold">Description</label>
+          <textarea class="form-control" id="description"></textarea>
+        </div>
+        <div class="form-group mb-4">
+          <label for="location" class="font-weight-bold">Location</label>
+          <input type="text" class="form-control" id="location" />
+        </div>
+        <div class="form-group mb-4">
+          <label for="start-date" class="font-weight-bold">Start</label>
+          <input type="datetime-local" class="form-control" id="start-date" />
+        </div>
+        <div class="form-group mb-4">
+          <label for="end-date" class="font-weight-bold">End</label>
+          <input type="datetime-local" class="form-control" id="end-date" />
+        </div>
+
+        <button type="save" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+
     <script src="popup.js"></script>
   </body>
 </html>
