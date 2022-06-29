@@ -11,7 +11,7 @@ async function loadEvents() {
         let li = document.createElement("li");
         li.innerHTML = `
         <div class="card">
-            <p class="card-header">${activity.title}</p>
+            <p class="card-header"><strong>${activity.title}</strong></p>
             <div class="card-body">
                 <p class="card-text">${activity.description}</p>
                 <p class="card-text"><strong>Starts: </strong>${activity.start}</p>
