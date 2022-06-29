@@ -1,8 +1,15 @@
 async function saveActivity(title, description, isAllDay, start, location, end="") {
     // If isAllDay, set end to be the same day as start but at 23:59:59
     if (isAllDay) {
-        end = new Date(start.getTime());
-        end.setHours(23, 59, 59, 999);
+        console.log("Is all day");
+        end = new Date(start);
+        start = new Date(start);
+        start.setHours(0, 0);
+        end.setHours(23, 59);
+        end = end.toISOString();
+        start = start.toISOString();
+        console.log("Start: " + start);
+        console.log("End: " + end);
     }
 
     let activity = {
@@ -27,7 +34,14 @@ async function getActivities() {
             if (result["activities"] === undefined) {
                 reject();
             } else {
-                resolve(result["activities"]);
+                activities = result["activities"];
+                for (let i = 0; i < activities.length; i++) {
+                    activities[i].start = new Date(activities[i].start);
+                    activities[i].end = new Date(activities[i].end);
+                    activities[i].start = activities[i].start.toString();
+                    activities[i].end = activities[i].end.toString();
+                }
+                resolve(activities);
             }
         })
     })
