@@ -26,6 +26,16 @@ body {
     display: block;
 }
 
+li {
+    list-style: none;
+    padding-left: 0;
+    padding-bottom: 10px;
+}
+
+ul {
+    padding-left: 0;
+}
+
 .startAllDayLabelsContainer {
     display: flex;
     justify-content: space-between;
