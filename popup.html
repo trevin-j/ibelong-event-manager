@@ -1,74 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <link rel="stylesheet" href="style.css" />
 
     <!-- Bootstrap -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+</head>
+
+<body>
     <div class="container-sm p-4">
-      <h4 class="text-center mb-4">Event Manager</h4>
-      <div class="add-btn-container my-3">
-        <button type="button" class="btn btn-outline-success" id="create-btn">Create</button>
-      </div>
-      <div id="eventList" class="show">
-        <!-- Trevin code -->
-        <ul id="events">
-          <!-- This area will be filled in by js with the activities -->
-        </ul>
-      </div>
-      <form id="eventForm" class="needs-validation">
-        <div class="form-group mb-4">
-          <label for="ttl" class="font-weight-bold" >Title</label>
-          <input type="text" class="form-control" id="ttl" required/>
+        <h4 class="text-center mb-4">Event Manager</h4>
+        <div class="add-btn-container my-3">
+            <button type="button" class="btn btn-outline-success" id="create-btn">Create</button>
         </div>
-        <div class="form-group mb-4">
-          <label for="description" class="font-weight-bold" >Description</label>
-          <textarea class="form-control" id="description"></textarea>
+        <div id="eventList" class="show">
+            <!-- Trevin code -->
+            <ul id="events">
+                <!-- This area will be filled in by js with the activities -->
+            </ul>
         </div>
-        <div class="form-group mb-4">
-          <label for="location" class="font-weight-bold" >Location</label>
-          <input type="text" class="form-control" id="location" required/>
-        </div>
-        <div class="form-group mb-4">
-          <div class="startAllDayLabelsContainer">
-            <label for="start-date" class="font-weight-bold" >Start</label>
-            <div class="form-check d-inline">
-              <input class="form-check-input" type="checkbox" value="" id="allDay">
-              <label class="form-check-label" for="allDay">
+        <form id="eventForm" class="needs-validation">
+            <div class="form-group mb-4">
+                <label for="ttl" class="font-weight-bold">Title</label>
+                <input type="text" class="form-control" id="ttl" onblur="getVal()" required/>
+            </div>
+            <div class="form-group mb-4">
+                <label for="description" class="font-weight-bold">Description</label>
+                <textarea class="form-control" id="description"></textarea>
+            </div>
+            <div class="form-group mb-4">
+                <label for="location" class="font-weight-bold">Location</label>
+                <input type="text" class="form-control" id="location" required/>
+            </div>
+            <div class="form-group mb-4">
+                <div class="startAllDayLabelsContainer">
+                    <label for="start-date" class="font-weight-bold">Start</label>
+                    <div class="form-check d-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="allDay">
+                        <label class="form-check-label" for="allDay">
                 All Day
               </label>
+                    </div>
+                </div>
+                <input type="datetime-local" class="form-control" id="start-date" required/>
             </div>
-          </div>
-          <input type="datetime-local" class="form-control" id="start-date" required/>
-        </div>
-        <div class="form-group mb-4 show" id="end" class="show">
-          <label for="end-date" class="font-weight-bold" >End</label>
-          <input type="datetime-local" class="form-control" id="end-date" required/>
-        </div>
+            <div class="form-group mb-4 show" id="end" class="show">
+                <label for="end-date" class="font-weight-bold">End</label>
+                <input type="datetime-local" class="form-control" id="end-date" required/>
+            </div>
 
-        <button type="save" class="btn btn-primary" id="saveBtn">Save</button>
-      </form>
+            <button type="save" class="btn btn-primary" id="saveBtn">Save</button>
+        </form>
     </div>
 
     <script src="popup.js"></script>
     <script src="storage.js"></script>
     <script src="event-loader.js"></script>
-  </body>
+</body>
+
 </html>

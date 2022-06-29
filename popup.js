@@ -1,10 +1,5 @@
 let changeColor = document.getElementById("changeColor");
 
-chrome.storage.sync.get("color", ({ color }) => {
-    changeColor.style.backgroundColor = color;
-})
-
-
 const createBtn = document.getElementById('create-btn');
 const eventForm = document.getElementById('eventForm');
 const eventList = document.getElementById('eventList');
@@ -23,22 +18,12 @@ createBtn.addEventListener('click', (e) => {
     createBtn.classList.toggle("btn-outline-danger")
     e.target.textContent = (e.target.textContent === "Create") ? "Close" : "Create"
 });
+saveBtn.addEventListener('click', () => { // on clicking the save button
+    // all the input info from user
+    const titleInfo = document.getElementById('ttl').value;
+    const descInfo = document.getElementById('description').value;
+    const locaInfo = document.getElementById('location').value;
+    const startDate = document.getElementById('start-date').value;
+    const endDate = document.getElementById('end-date').value;
 
-// When the button is clicked, inject setPageBackgroundColor into current page
-changeColor.addEventListener("click", async () => {
-    let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-
-    chrome.scripting.executeScript({
-        target: { tabId: tab.id },
-        function: setPageBackgroundColor,
-    });
-});
-
-// The body of this function will be executed as a content script inside the
-// current page
-function setPageBackgroundColor() {
-    chrome.storage.sync.get("color", ({ color }) => {
-        document.body.style.backgroundColor = color;
-    });
-}
-
+})
