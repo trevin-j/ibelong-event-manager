@@ -35,3 +35,15 @@ li {
 ul {
     padding-left: 0;
 }
+
+.startAllDayLabelsContainer {
+    display: flex;
+    justify-content: space-between;
+}
+#end.show {
+    display: block;
+}
+
+#end {
+    display: none;
+}
