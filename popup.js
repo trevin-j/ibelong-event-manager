@@ -25,5 +25,8 @@ saveBtn.addEventListener('click', () => { // on clicking the save button
     const locaInfo = document.getElementById('location').value;
     const startDate = document.getElementById('start-date').value;
     const endDate = document.getElementById('end-date').value;
+    const allDay = document.getElementById('allDay').checked;
 
+    // save the info to storage
+    saveActivity(titleInfo, descInfo, allDay, startDate, locaInfo, endDate);
 })
