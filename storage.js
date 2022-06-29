@@ -1,4 +1,10 @@
-async function saveActivity(title, description, start, end, location) {
+async function saveActivity(title, description, isAllDay, start, location, end="") {
+    // If isAllDay, set end to be the same day as start but at 23:59:59
+    if (isAllDay) {
+        end = new Date(start.getTime());
+        end.setHours(23, 59, 59, 999);
+    }
+
     let activity = {
         title: title,
         description: description,
@@ -26,18 +32,3 @@ async function getActivities() {
         })
     })
 }
-
-// let title = document.getElementById("title");
-// let description = document.getElementById("description");
-// let date = document.getElementById("date");
-// let postdate = document.getElementById("postdate");
-// let saveBtn = document.getElementById("saveBtn");
-// let loadBtn = document.getElementById("loadBtn");
-
-// saveBtn.onclick = function() {
-//     saveActivity(title.value, description.value, date.value, postdate.value);
-// }
-
-// getActivities().then(function(activities) {
-//     console.log(activities);
-// });
