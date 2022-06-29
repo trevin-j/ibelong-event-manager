@@ -25,3 +25,13 @@ body {
 #eventForm.show {
     display: block;
 }
+
+li {
+    list-style: none;
+    padding-left: 0;
+    padding-bottom: 10px;
+}
+
+ul {
+    padding-left: 0;
+}
